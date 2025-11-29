@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "grader-backend"
+version = "0.1.0"
+description = "AI-powered grading backend for RMI assignments"
+authors = [
+    { name = "Suhas S" }
+]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "python-dotenv",
+    "pymupdf",
+    "python-docx",
+    "openai",
+]
+
+[project.scripts]
+grader-backend = "grader_backend.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["grader_backend*"]
