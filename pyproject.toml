@@ -30,6 +30,8 @@ grader-backend = "grader_backend.__main__:main"
 # Full stack: backend + frontend
 grader-agent = "grader_launcher.__main__:main"
 
+app = "grader_backend.main:app"
+
 [tool.setuptools.packages.find]
 where = ["."]
 include = [
