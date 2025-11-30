@@ -13,7 +13,7 @@
 
 # 🌟 Overview
 
-The **RMI AI Grader Agent** is an end-to-end evaluation system that uses **Large Language Models (LLMs)** to generate rubrics, parse documents, and grade submissions.  
+The **AI Grader Agent** is an end-to-end evaluation system that uses **Large Language Models (LLMs)** to generate rubrics, parse documents, and grade submissions.  
 
 It includes:
 
