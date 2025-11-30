@@ -2,15 +2,16 @@
 
 import os
 import uvicorn
-from .main import app
+from grader_backend.main import app  # uses your existing FastAPI app
 
 
-def main():
+def main() -> None:
+    
     host = os.getenv("GRADER_BACKEND_HOST", "0.0.0.0")
     port = int(os.getenv("GRADER_BACKEND_PORT", "8000"))
-    reload = os.getenv("GRADER_BACKEND_RELOAD", "true").lower() == "true"
+    reload_flag = os.getenv("GRADER_BACKEND_RELOAD", "true").lower() == "true"
 
-    uvicorn.run(app, host=host, port=port, reload=reload)
+    uvicorn.run(app, host=host, port=port, reload=reload_flag)
 
 
 if __name__ == "__main__":

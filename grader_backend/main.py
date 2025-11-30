@@ -9,6 +9,8 @@ from typing import List, Optional
 import json
 import os
 import logging
+from dotenv import load_dotenv
+load_dotenv()
 
 logger = logging.getLogger(__name__)
 
@@ -167,7 +169,7 @@ async def generate_rubric_endpoint(req: RubricGenerateRequest):
     model_id = os.getenv("NIM_CHAT_MODEL", "qwen/qwen3-next-80b-a3b-instruct")
 
     try:
-        # NOTE: temporarily remove response_format to get plain text JSON back
+        
         response = chat_completion(
             model_id=model_id,
             messages=messages,
@@ -177,13 +179,13 @@ async def generate_rubric_endpoint(req: RubricGenerateRequest):
     except RuntimeError as e:
         raise HTTPException(status_code=502, detail=str(e))
 
-    # ---- Extract content safely ----
+    
     try:
         choice = response["choices"][0]
         message = choice.get("message", {}) or {}
         content = message.get("content")
 
-        # If content is a list (new-style content parts), join any text fields
+        
         if isinstance(content, list):
             parts = []
             for part in content:

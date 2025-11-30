@@ -3,26 +3,36 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "grader-backend"
+name = "grader-ai-agent"              # distribution name
 version = "0.1.0"
-description = "AI-powered grading backend for RMI assignments"
-authors = [
-    { name = "Suhas S" }
-]
+description = "AI-powered grader agent with FastAPI backend and Next.js frontend"
 readme = "README.md"
 requires-python = ">=3.10"
+
+authors = [
+  { name = "Suhas S" }
+]
+
 dependencies = [
-    "fastapi",
-    "uvicorn",
-    "python-dotenv",
-    "pymupdf",
-    "python-docx",
-    "openai",
+  "fastapi",
+  "uvicorn",
+  "pydantic>=2",
+  "python-dotenv",
+  "pymupdf",
+  "python-docx",
+  "openai",
+  "python-multipart"
 ]
 
 [project.scripts]
+# Backend only (optional)
 grader-backend = "grader_backend.__main__:main"
+# Full stack: backend + frontend
+grader-agent = "grader_launcher.__main__:main"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["grader_backend*"]
+include = [
+  "grader_backend*",
+  "grader_launcher*",
+]

@@ -4,14 +4,15 @@ import os
 import logging
 from openai import OpenAI, APIError
 from typing import List, Dict, Any
-
+from dotenv import load_dotenv
+load_dotenv()
 # Setup basic logging
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO)
 
 # Configuration from environment
 NIM_BASE_URL = os.getenv("NIM_BASE_URL", "https://integrate.api.nvidia.com/v1")
-NIM_API_KEY  = os.getenv("NIM_API_KEY", "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")
+NIM_API_KEY  = os.getenv("NIM_API_KEY", "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")
 NIM_CHAT_MODEL  = os.getenv("NIM_CHAT_MODEL","qwen/qwen3-next-80b-a3b-instruct")
 NIM_EMBED_MODEL = os.getenv("NIM_EMBED_MODEL", "nv-embedqa-e5-v5")
 
