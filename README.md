@@ -83,5 +83,5 @@ MIT License
 # 👤 Author
 
 **Suhas S**  
-Santa Clara University – Retail Management Institute  
+Santa Clara University
 AI Research & Product Engineering
